@@ -1,0 +1,66 @@
+body {
+  background: linear-gradient(135deg, rgb(121, 248, 221), rgb(98, 180, 162));
+  font-family: 'open sans';
+}
+.container {
+  margin: 75px auto;
+  text-align: center;
+}
+#task, #add {
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+}
+#task {
+  width: 200px;
+  padding: 15px;
+  font-size: 1rem;
+}
+#add {
+  width: 75px;
+  background-color: white;
+  font-size: 1rem;
+}
+#clear {
+  width: 75px;
+  margin: 10px;
+  border-radius: 20px;
+  height: 30px;
+  border: none;
+  font-size: 1rem;
+}
+#remove {
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: auto;
+  background-color: aliceblue;
+}
+#remove:active {
+  background-color: rgb(212, 221, 230);
+}
+.input-container {
+  width: 280px;
+  background-color: white;
+  margin: 5px auto;
+  border-radius: 20px;
+}
+.list {
+  background-color: white;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding: 25px;
+  width: 280px;
+  border-radius: 15px;
+  height: 350px;
+}
+#listLabel {
+  display: block;
+  padding: 5px 10px;
+  font-size: 15px;
+}
+input[type="checkbox"] {
+  margin-right: 10px;
+}
