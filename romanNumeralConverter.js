@@ -3,6 +3,7 @@ const numberInput = document.getElementById("number");
 const outputParagraph = document.getElementById("output");
 let outputArr = [];
 
+
 //This will convert the arabic number to the Roman Numeral when called
 const converter = (number)=> {
   if(!number) {

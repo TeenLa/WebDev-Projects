@@ -22,6 +22,7 @@ const quotes =JSON.parse(localStorage.getItem("quotes")) || ["Success is not fin
   "Hold fast to dreams, for if dreams die, life is a broken-winged bird that cannot fly"   
 ];
 
+
 const addQuote = (input)=> {
    quotes.push(input);
    localStorage.setItem("quotes", JSON.stringify(quotes));

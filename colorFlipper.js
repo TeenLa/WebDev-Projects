@@ -8,6 +8,7 @@ const ColorText = document.getElementById("randomColor");
 
 let intervalId;
 
+
 button1.addEventListener("click", ()=> {
   body.style.backgroundColor = 'red';
   ColorText.innerText = "Red";

@@ -7,6 +7,7 @@ const clean = text => {
   return textInput.value.replace(regex, "");
 }
 
+
 const compare = () => {
   let backwardArray = []; 
   const cleanedTextArray = Array.from(clean(textInput.value));
