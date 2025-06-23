@@ -30,7 +30,7 @@ button {
 
 .quote-container {
   /*the flex display allows us to manipulate the children of this attribute,
-  by giving them the flex property. so in thix case it give the p, the child of the div, a flex property*/
+  by giving them the flex property. so in this case it gives the p, the child of the div, a flex property*/
   display: flex;
   justify-content: center;/*horizontally*/
   align-items: center; /*vertically*/

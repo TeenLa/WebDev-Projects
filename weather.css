@@ -1,0 +1,58 @@
+body {
+  display: flex;
+  justify-content: center;
+  /* background-color: #D1D8BE; */
+}
+
+.upperFrame {
+  text-align: center;
+  background-color: #A7C1A8;
+  font: 18px "Arial", sans-serif;
+  width: 90vw;;
+  height: 30vh; 
+  margin: 20px auto 40px auto;
+  border-radius: 10px;
+}
+#cities {
+  width: 20vw;
+  height: 5vh;
+  border-radius: 20px;
+  padding: 7px;
+  border: 0.5px solid #D1D8BE;
+  margin-top: 5px; 
+}
+
+.bottomFrames {
+  display: inline-flex;
+  justify-content: start;
+}
+
+.leftFrame {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 35vw;
+  height: 50vh;
+  background-color: #D1D8BE;
+  font-family: sans-serif;
+  margin: 0 25px 0 0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.currentInfo {
+  margin: 10px auto;
+  font: bold 22px "Sans-Serif";
+  color: #2E2E2E;
+}
+
+.rightFrame {
+  width: 51vw;
+  height: 50vh;
+  background-color: #D1D8BE;
+  font: sans-serif;
+  justify-self: end;
+  margin: 0 0 10px 20px;
+  border-radius: 10px;
+}

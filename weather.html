@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WeatherApp</title>
+    <meta charsett="utf-8">
+    <link rel="stylesheet" href="weather.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="upperFrame">
+        <select id="cities">
+          <option class = "cities" id="addis" value="AA">Addis Ababa</option>
+          <option class = "cities" id="adama" value="AD">Adama</option>
+          <option class = "cities" id="bahir" value="BD">Bahir Dar</option>
+          <option class = "cities" id="dire" value="DD">Dire Dawa</option>
+          <option class = "cities" id="hawassa" value="HW">Hawassa</option>
+          <option class = "cities" id="mekelle" value="MK">Mekelle</option>
+        </select>
+      </div>
+      <div class="bottomFrames">
+        <div class="leftFrame">
+          <p class="currentInfo" id="time"></p>
+          <p class="currentInfo" id="country"></p>
+          <p class="currentInfo" id="city"></p>
+          <p class="currentInfo" id="temp"></p>
+          <p class="currentInfo" id="prec"></p>
+          <p class="currentInfo" id="condition"></p>
+          <p class="currentInfo" id="windSpeed"></p>
+        </div>
+      <div class="rightFrame">
+        <p id="weather"></p>
+      </div>
+      </div>  
+    </div>
+
+  </body>
+  <script src="weather.js"></script>
+</html>
