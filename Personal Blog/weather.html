@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather App</title>
+    <meta charsett="utf-8">
+    <link rel="stylesheet" href="weather.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="upperFrame">
+        <select id="cities">
+          <option class = "cities" id="addis" value="AA">Addis Ababa</option>
+          <option class = "cities" id="adama" value="AD">Adama</option>
+          <option class = "cities" id="bahir" value="BD">Bahir Dar</option>
+          <option class = "cities" id="dire" value="DD">Dire Dawa</option>
+          <option class = "cities" id="hawassa" value="HW">Hawassa</option>
+          <option class = "cities" id="mekelle" value="MK">Mekele</option>
+        </select>
+        <div id="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d69190.50758362512!2d38.717901606565874!3d8.994087337689303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24d49!2sAddis%20Ababa!5e0!3m2!1sen!2set!4v1750717015731!5m2!1sen!2set"
+        width="1218" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="bottomFrames">
+        <div class="leftFrame">
+          <div id="video">
+            <!-- Where the videos will be added -->
+          </div>
+          <div class="overlay"></div>
+          <div class="texts">
+            <p class="currentInfo" id="time"></p>
+            <p class="currentInfo" id="country"></p>
+            <p class="currentInfo" id="city"></p>
+            <p class="currentInfo" id="temp"></p>
+            <p class="currentInfo" id="prec"></p>
+            <p class="currentInfo" id="condition"></p>
+            <p class="currentInfo" id="windSpeed"></p>
+          </div>
+        </div>
+      <div class="rightFrame">
+        <div class="daily-texts">
+          <p class="dailyInfo" id="date"></p>
+          <p class="dailyInfo" id="temp-max"></p>
+          <p class="dailyInfo" id="temp-min"></p>
+          <p class="dailyInfo" id="temp-average"></p>
+          <p class="dailyInfo" id="humidity"></p>
+          <p class="dailyInfo" id="prec-daily"></p>
+          <p class="dailyInfo" id="windspeed"></p>
+          <p class="dailyInfo" id="pressure"></p>
+          <p class="dailyInfo" id="sunrise"></p>
+          <p class="dailyInfo" id="sunset"></p>
+          <p class="dailyInfo" id="descrip"></p>
+        </div>
+        <button id="backBtn"> < </button>
+        <button id="nextBtn"> > </button>
+      </div>
+      </div>  
+    </div>
+
+  </body>
+  <script src="weather.js"></script>
+</html>

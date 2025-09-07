@@ -1,0 +1,43 @@
+body {
+  
+  margin: 20px auto;
+  background-color: white(194, 180, 180);
+  font-family: open sans;
+}
+.container {
+  text-align: center;
+  margin: 100px auto;
+}
+button {
+  height: 100px;
+  width: 200px;
+  color: white;
+  border-radius: 40px;
+  font-size: 20px;
+  border: none;
+  padding: 5px;
+  margin: 0 5px;
+}
+#button1 {
+  background-color: red;
+}
+#button2 {
+  background-color: green;
+}
+#button3 {
+  background-color: blue;
+}
+#button4 {
+  background-color: rgb(196, 171, 171);
+  color: white;
+}
+#button5 {
+    background-color:rgb(138, 121, 121);
+    color: white;
+    display: block;
+    margin: 20px auto;
+}
+h1 {
+  font-size: 40px;
+  margin-bottom: 25px;
+}

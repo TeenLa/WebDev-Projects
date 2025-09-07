@@ -1,0 +1,199 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    /* I want to know how changing the min-height to 100vh made the footer to stick at them bottom */
+}
+main {
+    width: 100vw;
+    /* height: 75vh; */
+    /* background-color: aqua; */
+    margin: 1.25rem auto;
+    flex: 1;
+    margin-top: 15vh;
+    /* I want to know how flex = 1 helped in making the footer to stick to the bottom */
+}
+.footer-container {
+    margin: 0 5px;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #e3e7e9;
+    color: #212529;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 13vh;
+    z-index: 1000;
+}
+.socials-item{
+    padding: .3rem;
+    text-align: center;
+    /* left: 45%; */
+}
+.swiper-wrapper {
+    height: 40vh;
+    width: auto;
+}
+.swiper-slide {
+    background-color: rgb(165, 162, 154);
+    /* height: 20vh; */
+    /* background-image: url(../icon.png); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* blurr the image, and increase the size too */
+    width: 15vw;
+    border-radius: 3%;
+}
+ul {
+    font-size: 1.2rem;
+}
+.form-control {
+    font-size: 1.1rem;  
+}
+.hidden {
+    display: none;
+}
+#new-post-form {
+    display: flex;
+    flex-direction: column;
+    /* margin: 0 0 1rem 2rem; */
+    margin-bottom: 1rem;
+}
+.input {    
+    /* display: flex; */
+    border: 1px solid rgba(227, 227, 227, 0.63);
+    background-color: rgba(227, 227, 227, 0.63);
+    padding: .5rem;
+    /* box-shadow: 0 0 0 2px white; */
+}
+.title {
+    margin: 1rem;
+    width: 15vw;
+    height: 2.5rem;
+}
+.content{
+    width: 40vw;
+    margin: 1rem;
+    resize: none;
+    max-height: 35vh;
+}
+#submit-post-btn {  
+    align-self: center;
+    position: relative;
+    right: 11%;
+    /* background-color: orange; */
+}
+.btn-warning {
+    background-color: rgb(230, 157, 23);
+}
+.btn-warning:hover {
+    background-color: rgb(203, 139, 19);
+}
+#post-area {
+    margin: 0 9rem 0 9rem;
+}
+.view-post-btn {
+    height: 5.85em;
+    width: 7.4em;
+    font-size: 2.3em;
+    position: relative;
+    left: 3.5rem;
+    top: 3.3rem;
+    color: black;
+    padding: .1rem .1rem;
+}
+#delete-post-home-page {
+    position: absolute;
+    bottom: 2rem;
+    left: 37%;
+    font-size: 1.5rem;
+}
+.about-content {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 9rem;
+}
+#my-pic {
+    /* width: 40vw; */
+    height: 75vh;
+    margin: 1rem 2rem 1rem 2rem;
+    border-radius: 2%;
+    position: sticky;
+    top: 18vh;
+}
+.about-me {
+    width: 40vw;
+    font-size: 1.4rem;
+    position: relative;
+    top: .75rem;
+    left: 2rem;
+}
+#about-heading {
+    font-size: 3.2rem;
+    margin: .5rem 0 1rem 11.5rem;
+}
+.new-post {
+    position: relative;
+    left: 9rem;
+}
+
+.post-view {
+    position: relative;
+    left: 25rem;
+    margin: 1rem 2rem 1rem 2rem;
+    max-width: 50%;
+    font-size: 1.25rem;
+}
+.post-view-buttons-container {
+    position: relative;
+    left: 27rem;
+    width: 50%;
+    top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+#edit-post-btn {
+    margin-right: 2rem;
+    width: 8rem;
+    color: white;
+}
+#editable-delete-btn {
+    position: relative;
+    width: 8rem;
+    left: 58.7rem;
+    bottom: 1.8rem;
+}
+#delete-post-form {
+    margin-left: 2rem;
+}
+.delete-post-btn {
+    width: 8rem;
+}
+#uneditable-post-title, #editable-post-title {
+    font-size: 1.75rem;
+}
+#save-edit {
+    position: relative;
+    left: 46.7rem;
+    top: .6rem;
+    width: 8rem;
+}
+#editable-post-form {
+    display: flex;
+    flex-direction: column;
+}
+#editable-post-title, #editable-post-content {
+    resize: none;
+    border: none;
+    height: fit-content;
+    background-color: #fafafa;
+}
+#editable-post-content {
+    background-color: #fcfcfc;
+}
+#editable-post-title:focus, #editable-post-content:focus {
+    outline: none;
+}

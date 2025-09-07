@@ -1,0 +1,69 @@
+    <footer>
+        <div class="footer-container">
+            <p id="footer-copyright" >Copyright ©️ <%= new Date().getFullYear()%>. All rights reserved</p>
+            <div class="socials">
+                <a class="socials-item" href="https://x.com/Teen_Lalu" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i>X</a>
+                <a class="socials-item" href="https://www.instagram.com/laluuu_geleta/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i>Instagram</a>
+                <a class="socials-item" href="https://t.me/Teen_La" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i>Telegram</a>
+                <a class="socials-item" href="https://www.facebook.com/share/1EWXB5RrdD/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i>Facebook</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <script>
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            },
+        });
+
+        $('.editable-view').addClass('hidden');
+        $('#save-edit').addClass('hidden');
+
+        $('#edit-post-btn').click(function() {
+            $('.editable-view').removeClass('hidden');
+            $('.uneditable-view').addClass('hidden');
+            $('#save-edit').removeClass('hidden');
+            $('#edit-post-btn').addClass('hidden');
+            // window.location.reload();    
+        })
+        $('#save-edit').click(()=> {
+            $('.editable-view').addClass('hidden');
+            $('#save-edit').addClass('hidden');
+            $('.uneditable-view').removeClass('hidden');
+            $('#edit-post-btn').removeClass('hidden');
+        })
+
+        $('.delete-post-btn').click(function(event) {
+            if(!confirm("Proceed with post deletion?")) {
+            event.preventDefault();
+            }
+        })
+        $('.title').focus();
+        $('#search-btn').click(()=> {
+            $('.title').blur();
+        })
+        $('.content').on('input', function() {
+            $(this).css('height', 'auto');
+            $(this).css('height', this.scrollHeight + 'px');
+        })
+        $('#edit-post-btn').on('click', ()=> {
+            const textArea = $('#editable-post-content')[0];
+            if(textArea) {
+                textArea.style.height = "auto";
+                textArea.style.height = textArea.scrollHeight + 'px';
+            }
+        })
+        $('#editable-post-content').on('input', function() {
+            $(this).css('height', 'auto');
+            $(this).css('height', this.scrollHeight + 'px');
+        })
+
+        </script>   
+</body>
+</html>

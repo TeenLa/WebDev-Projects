@@ -1,0 +1,54 @@
+body {
+  background: linear-gradient(45deg, rgb(93, 93, 177), rgb(122, 122, 179));
+  font-family:sans-serif;
+}
+.container {
+  width: 50%;
+  background-color:rgb(184, 184, 211);
+  margin: 50px auto;
+  border-radius: 15px;
+  height: 500px;
+  text-align: center;
+  padding: 15px;
+}
+
+#fieldset1, #fieldset2 {
+  width: 75%;
+  margin: 15px auto;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+#fieldset2 {
+  height: 100px;
+  background-color: aliceblue;
+}
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 150px;
+  height: 2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: 0.3px solid rgba(177, 160, 160, 0.76);
+}
+#number {
+  width: 150px;
+  height: 1.3rem;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+label {
+  font-size: 1.2rem;
+}
+p {
+  font-size: 1rem;
+}
+#output {
+  font-size: 18px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin: 30px auto;
+}
