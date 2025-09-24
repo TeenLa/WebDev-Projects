@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %>
+<main>
+    <div class="container">
+        <%if(locals.book) {%>
+            <div class="specific-boook">
+                <img src="<%= book.volumeInfo.imageLinks? book.volumeInfo.imageLinks.thumbnail: `https://openlibrary.org/images/icons/avatar_book-sm.png` %>">
+                <p><%= book.volumeInfo.title %></p>
+                <p>By <%= book.volumeInfo.authors.join(', ') %></p>
+                <p><span><%=book.volumeInfo.averageRating%></span>  <span><%= book.volumeInfo.pageCount %></span></p>
+                <div class="single-buttons">
+                    <form>
+                        <button>Want to Read</button>
+                        <button>Read</button>
+                        <button>Currenlty Reading</button>
+                    </form>
+                </div>
+            </div>
+        <%}%>
+        <div class="book-description">
+            <h2>Description</h2>
+            <p><%- book.volumeInfo.description %></p>
+        </div>
+        <div class="recommendation">
+            <h2>Similar Boooks</h2>
+            <!-- there will be a loop of the following elements for books -->
+             <%if(locals.similarBooks) {%>
+                <%similarBooks.forEach((similarBook)=> {%>
+                    <img src="<%= similarBook.volumeInfo.imageLinks? similarBook.volumeInfo.imageLinks.thumbnail: `https://openlibrary.org/images/icons/avatar_book-sm.png` %>">
+                    <p><%= similarBook.volumeInfo.title %></p> 
+                <%})%>
+             <%}%>
+        </div>  
+    </div>
+</main>
+<%- include('partials/footer.ejs') %>
