@@ -15,7 +15,7 @@ const baseUrl = "https://www.googleapis.com/books/v1/volumes";
 var reading = [];
 var read = [];
 var wantToRead = [];
-var recommendation = [];
+var recommendations = [];
 var categories = ["Fiction", "Mystery", "Thriller", "Science Fiction", "Fantasy", "Romance", "Historical Fiction"];
 var selectedCategory = categories[Math.floor(Math.random() * 7)];
 var selectedList = wantToRead;
@@ -75,15 +75,31 @@ app.post("/search", async (req, res)=> {
     const searchInput = req.body.searchValue;
     res.redirect(`/search?searchValue=${encodeURIComponent(searchInput)}`);
 })
-async function listAdder(req, list, array, id) {
-    if(req.body['search-result'] === list) {
+async function listAdder(req, list, array, id, {first, second}) {
+    if(req.body['clicked-result'] === list) {
         try {
             const result = await axios.get(baseUrl+"/"+id, {
                 params: {
                     key: API_KEY
                 }
             })
-            array.push(result.data);
+            let exists = array.some(arr=> {
+                return result.data.volumeInfo.title === arr.volumeInfo.title;   
+            })
+            if(!exists) {
+                array.unshift(result.data);
+                function remover(arr) {
+                    const IfIndex = arr.findIndex((book)=> {
+                        return book.volumeInfo.title === result.data.volumeInfo.title;
+                    })
+                    if(IfIndex !== -1) {
+                        arr.splice(IfIndex, 1);
+                    }
+                }
+
+                remover(first);
+                remover(second);
+            }
         }
         catch (err) {
             console.log(err.response.data);
@@ -91,15 +107,26 @@ async function listAdder(req, list, array, id) {
     }
 }
 app.post("/update-list", async (req,res)=> {
-    const volumeId = req.body['selected-search-id'];
-    await listAdder(req, "toRead", wantToRead, volumeId)
-    await listAdder(req, "reading", reading, volumeId);
-    await listAdder(req, "read", read, volumeId);
+    const volumeId = req.body['selected-id'];
+    if(req.body['clicked-result'] === "notReading") {
+        reading.splice(0, 1);
+        res.redirect('/');
+    }
+    await listAdder(req, "wantToRead", wantToRead, volumeId, {first: reading, second: read})
+    await listAdder(req, "reading", reading, volumeId, {first: wantToRead, second: read});
+    await listAdder(req, "read", read, volumeId, {first: wantToRead, second: reading});
     const searchInput = req.body.searchValue;
-    res.redirect(`/search?searchValue=${encodeURIComponent(searchInput)}`);
+
+    if(req.body.formLocation === "search") {
+        res.redirect(`/search?searchValue=${encodeURIComponent(searchInput)}`);
+    } else if(req.body.formLocation === "single-book") {
+        res.redirect(`/single?bookId=${encodeURIComponent(volumeId)}`)
+    } else if(req.body.formLocation === "index") {
+        res.redirect("/");
+    }
 })
-app.post("/single", async (req, res)=> {
-    const id = req.body["single-id"];
+app.get("/single", async (req, res)=> {
+    const id = req.query.bookId;
     
     try {
         const result = await axios.get(baseUrl+"/"+id, {
@@ -117,9 +144,14 @@ app.post("/single", async (req, res)=> {
         res.render("single-book.ejs", {book: result.data, similarBooks: result1.data.items});
     }
     catch (err) {
-        console.log(err.response.data);
+        console.log(err.response? err.response.data: "Error:", err.message);
     }
 })
+
+app.post("/single", (req, res)=> {
+    res.redirect(`/single?bookId=${encodeURIComponent(req.body['single-id'])}`)
+})
+
 app.get("/profile", async(req, res)=> {
     const hash = md5('yanetgele@gmail.com');
     const gravatarURL = `https://www.gravatar.com/avatar/${hash}?d=identicon&s=200`;
@@ -149,11 +181,7 @@ app.get("/profile", async(req, res)=> {
 })
 app.post("/profile", async(req, res)=> {
     const list = req.body.profileList;
-    if(req.body.profileList=== "wantToRead") {
-        res.redirect(`profile?list=${encodeURIComponent(list)}`);
-    } else {
-        res.redirect(`profile?list=${encodeURIComponent(list)}`);
-    }
+    res.redirect(`profile?list=${encodeURIComponent(list)}`);
 })
 
 app.listen(port, ()=> {

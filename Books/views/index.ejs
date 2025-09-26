@@ -13,13 +13,17 @@
                         <span><%= reading.volumeInfo.averageRating? reading.volumeInfo.averageRating: "not rated" %></span>
                     </p>
                  </form>
-                <p>By<%= reading.volumeInfo.authors.join(', ') %></p>
+                <p>By<%= reading.volumeInfo.authors? reading.volumeInfo.authors.join(', '): "Unknown Author" %></p>
                 <p><%= reading.volumeInfo.pageCount %></p>
-                <p><%= reading.volumeInfo.description %></p>
+                <p><%- reading.volumeInfo.description %></p>
                 <!-- image in the left, and the other info on the right -->
                 <div class="buttons">
-                    <button>Finished</button>
-                    <button>Reading</button> <!--maybe replace them with some signs-->
+                    <form action="/update-list" method="post">
+                        <input name="formLocation" value="index" type="hidden">
+                        <input type="hidden" name="selected-id" value="<%= reading.id %>">
+                        <button name="clicked-result" value="read">Finished</button>
+                        <button name="clicked-result" value="notReading">Not Reading</button> <!--maybe replace them with some signs-->
+                    </form>
                 </div>
             </div>
             <div class="recommendations">

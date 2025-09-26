@@ -16,6 +16,52 @@
         $('.clickable-single-book').on('click', function() {
             $(this).closest('form').submit();
         })
+        var wantToReadIndex = 1;
+        var readingIndex = 0;
+        var readIndex = 0;
+        var recommendationIndex = 0;
+
+        //needs some thinking
+        function preventLoad(id, {first, second, third, fourth}) {
+            $(`#${id}`).on('click', function() {
+                if(first === 1) {
+                    $(this).closest('form').on('submit', function(event) {
+                        event.preventDefault()
+                    })
+                    console.log("load prevented")
+                } else {
+                    first++;
+                    second = 0;
+                    third = 0;
+                    fourth = 0;
+                }
+            })
+        }
+
+        preventLoad('toReadBtn', {
+            first: wantToReadIndex,
+            second: readingIndex,
+            third: readIndex,
+            fourth: recommendationIndex
+        })
+        preventLoad('readingBtn', {
+            first: readingIndex,
+            second: wantToReadIndex,
+            third: readIndex,
+            fourth: recommendationIndex
+        })
+        preventLoad('readBtn', {
+            first: readIndex,
+            second: readIndex,
+            third: wantToReadIndex,
+            fourth: recommendationIndex
+        })
+        preventLoad('recBtn', {
+            first: recommendationIndex,
+            second: readIndex,
+            third: readIndex,
+            fourth: wantToReadIndex
+        })
     </script>
 </body>
 </html>

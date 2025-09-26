@@ -1,7 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
     /* I want to know how changing the min-height to 100vh made the footer to stick at them bottom */
 }
 main {
@@ -66,6 +66,7 @@ ul {
     border: 1px solid rgba(227, 227, 227, 0.63);
     background-color: rgba(227, 227, 227, 0.63);
     padding: .5rem;
+    border-radius: .5rem;
     /* box-shadow: 0 0 0 2px white; */
 }
 .title {

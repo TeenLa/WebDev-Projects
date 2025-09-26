@@ -11,23 +11,20 @@
                     <form action="/single" method="post">
                         <span>
                             <input name="single-id" type="hidden" value="<%= value.id %>">
-                            <% if(value.volumeInfo.imageLinks) {%>
-                                <img class="clickable-single-book" src="<%= value.volumeInfo.imageLinks.thumbnail %>">
-                            <%} else {%>
-                                <img class="clickable-single-book" src="https://openlibrary.org/images/icons/avatar_book-sm.png">
-                            <%}%>
+                            <img class="clickable-single-book" src="<%= value.volumeInfo.imageLinks? value.volumeInfo.imageLinks.thumbnail: `https://openlibrary.org/images/icons/avatar_book-sm.png` %>">
                             <p class="clickable-single-book"><%=value.volumeInfo.title%></p>
                             <p>by <%= value.volumeInfo.authors? value.volumeInfo.authors.join(", "): "Unknown Author"%></p>
                             <form action="/update-list" method="post">
-                                <select name="search-result" onchange="this.form.submit()">
+                                <select name="clicked-result" onchange="this.form.submit()">
                                     <option value="" disabled selected>Add to...</option>
-                                    <option value="toRead">Want to Read</option>
+                                    <option value="wantToRead">Want to Read</option>
                                     <option value="reading">Reading</option>
                                     <option value="read">Read</option>
                                 </select>
-                                <input name="selected-search-id" value="<%= value.id %>" type="hidden">
+                                <input name="selected-id" value="<%= value.id %>" type="hidden">
                                 <!-- <input name="redirectTo" value="<%#= redirectTo %>" type="hidden" > -->
                                 <input name="searchValue" value="<%= searchInput %>" type="hidden" >
+                                <input name="formLocation" value="search" type="hidden">
                             </form> 
                         </span>
                     </form>

@@ -4,7 +4,7 @@
     <form id="editable-post-form" action="/edit-post" method="POST">
         <input name="edited-title" class="editable-view post-view" type="text" id="editable-post-title" value="<%= title %>">
         <hr class="editable-view" style="width: 55%; margin: 0 24rem;">
-        <textarea name="edited-content" class="editable-view post-view" id="editable-post-content"> <%= content %></textarea>
+        <textarea name="edited-content" class="editable-view post-view" id="editable-post-content"> <%=content%></textarea>
         <button class="btn btn-warning" type="submit" id="save-edit">Save</button>
         <form id="delete-post-form" action="/delete" method="POST">
             <button id="editable-delete-btn" class="delete-post-btn btn btn-danger editable-view" name="deleted-post" value="<%= title %>" type="submit">Delete</button>

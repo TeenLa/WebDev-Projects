@@ -9,22 +9,26 @@
         <span>
             <nav>
                 <form action="/profile" method="post">
-                    <button type="submit" name="profileList" value="wantToRead">Want to Read</button>
-                    <button type="submit" name="profileList" value="reading">Reading</button>
-                    <button type="submit" name="profileList" value="read">Read</button>
-                    <button type="submit" name="profileList" value="recommendation">Recommendations</button>
+                    <button id="toReadBtn" type="submit" name="profileList" value="wantToRead">Want to Read</button>
+                    <button id="readingBtn" type="submit" name="profileList" value="reading">Reading</button>
+                    <button id="readBtn" type="submit" name="profileList" value="read">Read</button>
+                    <button id="recBtn" type="submit" name="profileList" value="recommendation">Recommendations</button>
                 </form>
             </nav>
         </span>
             <%data.list.forEach(listValue=> {%>
-                <span class="books">
-                    <!-- these will be looped through for the books present -->
-                    <p><%= data.listName %></p>
-                    <p><%= listValue.volumeInfo.title %></p>
-                    <p><%= listValue.volumeInfo.authors.join(", ") %></p>
-                    <button><%= listValue.listName %></button>
-                    <img src="<%= listValue.volumeInfo.imageLinks? listValue.volumeInfo.imageLinks.thumbnail: `https://openlibrary.org/images/icons/avatar_book-sm.png` %>">
-                </span>
+                <form action="/single" method="post">
+                    <span class="books">
+                        <!-- these will be looped through for the boo   ks present -->
+                        <input type="hidden" value="<%= listValue.id %>" name="single-id">
+                        <p><%= data.listName %></p>
+                        <p class="clickable-single-book"><%= listValue.volumeInfo.title %></p>
+                        <p><%= listValue.volumeInfo.authors? listValue.volumeInfo.authors.join(", "): "Unknown Author" %></p>
+                        <button><%= listValue.listName %></button>
+                        <img class="clickable-single-book" src="<%= listValue.volumeInfo.imageLinks? listValue.volumeInfo.imageLinks.thumbnail: `https://openlibrary.org/images/icons/avatar_book-sm.png` %>">
+                    </span>
+                </form>
+                
             <%})%>
     </div>
 </main>
